@@ -29,6 +29,7 @@ def get_tweets(api, name='realDonaldTrump'):
             tweets.append(twt)
     return tweets
 
-if __name__ == "__main__":
-    api = initialize()
-    twts = get_tweets(api)
+# test code 
+# if __name__ == "__main__":
+#     api = initialize()
+#     twts = get_tweets(api)

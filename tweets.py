@@ -23,9 +23,12 @@ def initialize():
 def get_tweets(api, name='realDonaldTrump'):
     tweets = []
     for status in tweepy.Cursor(api.user_timeline, screen_name='@{0}'.format(name)).items():
-        tweets.append(unidecode(status._json['text']).encode('utf-8'))
+        twt = re.search('(.*)(?:http)', unidecode(status._json['text']).encode('utf-8'))
+        if twt:
+            twt = twt.group(1)
+            tweets.append(twt)
     return tweets
 
 if __name__ == "__main__":
     api = initialize()
-    print get_tweets(api)
+    twts = get_tweets(api)

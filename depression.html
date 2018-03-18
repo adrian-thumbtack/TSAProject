@@ -12,13 +12,13 @@
 	  <a href="javascript:void(0)">Home</a>
 	  <a href="javascript:void(0)">About Us</a>
 	</div>
-	<div class='containter'>
-		<img src='media/header.jpg' style='width:100%;'>
-		<div class='centered'>
-			<h1 style='color:white;'>Are you depressed? Find out now!</h1>
+	<div class="containter">
+		<img src="media/header.jpg" style="width:100%;">
+		<div class="centered">
+			<h1 style="color:white;">Are you depressed? Find out now!</h1>
 			<br>
-			<form>
-				<label style='color:#f1f1f1;'>Twitter Username
+			<form action="results.html">
+				<label style="color:#f1f1f1;">Twitter Username
 					<input type="text" class="txtField"/>
 				</label>
 				<br><br><input type="submit" class="btn">
@@ -27,18 +27,15 @@
 	</div>
 
 	<script>
-	window.onscroll = function() {myFunction()};
-
-	var navbar = document.getElementById("navbar");
-	var sticky = navbar.offsetTop;
-
-	function myFunction() {
-	  if (window.pageYOffset >= sticky) {
-	    navbar.classList.add("sticky")
-	  } else {
-	    navbar.classList.remove("sticky");
-	  }
-	}
+		window.onscroll=scrolled
+		var navbar = document.getElementById("navbar")
+		function myFunction() {
+		  if (window.pageYOffset >= navbar.offsetTop) {
+		    navbar.classList.add("sticky")
+		  } else {
+		    navbar.classList.remove("sticky")
+		  }
+		}
 	</script>
 </body>
 </html>

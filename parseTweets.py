@@ -13,7 +13,7 @@ def searchForNeg(twts):
 	for tweet in twts:
 		negResult = lexicon.analyze(tweet, categories=["negative_emotion"])
 		print(negResult)
-		a.append(sum(negResult.values())
+		a.append(sum(negResult.values()))
 	return sum(a)
 		
 def searchForPos(twts):
@@ -21,6 +21,6 @@ def searchForPos(twts):
 	for tweet in twts:
 		posResult = lexicon.analyze(tweet, categories=["positive_emotion"])
 		print(posResult)
-		a.append(sum(posResult.values())
+		a.append(sum(posResult.values()))
 	return sum(a)
 		

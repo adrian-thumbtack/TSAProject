@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Are you depressed? Get help!</title>
+<title>Insert Name Here</title>
 <style>
 	body {
-		background-color: lime;
-		color: yellow;
+		background-color: #e3e3e3;
+		color: #89bdd3;
 		text-align: center;
+	}
+	.txtField {
+		background-color: #31708E;
+		color: #e3e3e3;
+	}
+	.btn {
+		background-color: #89bdd3;
+		color: #e3e3e3;
+		outline: none;
+		border: none;
+		border-radius: 15px;
+		width: 75px;
+		height: 25px;
+		box-shadow: 0 4px #999;
+	}
+	.btn:active {
+		background-color: #31708e;
+		box-shadow: 0 2px #666;
+		transform: translateY(2px);
 	}
 </style>
 </head>
 <body>
-<h1>Are you depressed? <s>I know I am!</s> Find out now!</h1>
+<h1>Are you depressed? Find out now!</h1>
 <br>
 <form>
-<label>Twitter Username
-<input type="text"/>
+<label>Twitter Username           
+<input type="text" class="txtField"/>
 </label>
-<input type="submit">
+<br><br><input type="submit" class="btn">
 </form>
 </body>
 </html>

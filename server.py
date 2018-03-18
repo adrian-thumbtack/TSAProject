@@ -21,10 +21,13 @@ def initialize():
 def get_tweets(api, name="realDonaldTrump"):
     tweets = []
     for status in tweepy.Cursor(api.user_timeline, screen_name="@{0}".format(name)).items():
-        twt = re.search("(.*)(?:http)", unidecode(status._json["text"]).encode("utf-8"))
-        if twt:
-            twt = twt.group(1)
-            tweets.append(twt)
+        try:
+            twt = re.search("(.*)(?:http)", unidecode(status._json["text"]).encode("utf-8"))
+            if twt:
+                twt = twt.group(1)
+                tweets.append(twt)
+        except:
+            pass
     return tweets
 
 lexicon = Empath()

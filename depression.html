@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Insert Name Here</title>
-<style>
-	body {
-		background-color: #e3e3e3;
-		color: #89bdd3;
-		text-align: center;
-	}
-	.txtField {
-		background-color: #31708E;
-		color: #e3e3e3;
-	}
-	.btn {
-		background-color: #89bdd3;
-		color: #e3e3e3;
-		outline: none;
-		border: none;
-		border-radius: 15px;
-		width: 75px;
-		height: 25px;
-		box-shadow: 0 4px #999;
-	}
-	.btn:active {
-		background-color: #31708e;
-		box-shadow: 0 2px #666;
-		transform: translateY(2px);
-	}
-</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>ENTER TITLE HERE</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
-<h1>Are you depressed? Find out now!</h1>
-<br>
-<form>
-<label>Twitter Username           
-<input type="text" class="txtField"/>
-</label>
-<br><br><input type="submit" class="btn">
-</form>
+	<div id="navbar">
+	  <a href="javascript:void(0)">Home</a>
+	  <a href="javascript:void(0)">About Us</a>
+	</div>
+	<div class='containter'>
+		<img src='media/header.jpg' style='width:100%;'>
+		<div class='centered'>
+			<h1 style='color:white;'>Are you depressed? Find out now!</h1>
+			<br>
+			<form>
+				<label style='color:#f1f1f1;'>Twitter Username
+					<input type="text" class="txtField"/>
+				</label>
+				<br><br><input type="submit" class="btn">
+			</form>
+		</div>
+	</div>
+
+	<script>
+	window.onscroll = function() {myFunction()};
+
+	var navbar = document.getElementById("navbar");
+	var sticky = navbar.offsetTop;
+
+	function myFunction() {
+	  if (window.pageYOffset >= sticky) {
+	    navbar.classList.add("sticky")
+	  } else {
+	    navbar.classList.remove("sticky");
+	  }
+	}
+	</script>
 </body>
 </html>

@@ -10,26 +10,24 @@ import warnings
 FINALVERSION = False #if its final version, errors will be caught
 
 def initialize():
-    consumer_key = "FOwqj340c3ad38QA1rMhmhH5p"
-    consumer_secret = "dq0Ofk0PzjOCWSOny53HtDcVTYlYjpEMN83Ri041J1dlXHK7qf"
-    access_token = "3707523437-Ka8eBPi56wuxgd1IHnlIBH5Bp2n5VJzM6H1z4x9"
-    access_secret = "5hwNEuCIZ5pECawUibd01WjoiHdIX9bvKezhNx6FjFZAE"
+    consumer_key = "lBd0fokEEx2ncJCZUEWVLIUN8"
+    consumer_secret = "AcQ2C1idexoxb0msBycqid2H1QbdtKZXRJh0cMPkpUAaKEWrC6"
+    access_token = "4142122823-8mPPgiEnFIEK4MMPGtmaJ8bhxY7rBLP0IdrAN5e"
+    access_secret = "MTyQVvSLkq2OUVbHEVXDTIY58eFgLCvRLyZmvOpcCEx0i"
     if not sys.warnoptions:
         warnings.simplefilter("ignore")
     auth = OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_secret)
     api = tweepy.API(auth)
     return api
+
 def get_tweets(api, name="realDonaldTrump"):
     tweets = []
     for status in tweepy.Cursor(api.user_timeline, screen_name="@{0}".format(name)).items():
-        try:
-            twt = re.search("(.*)(?:http)", unidecode(status._json["text"]).encode("utf-8"))
-            if twt:
-                twt = twt.group(1)
-                tweets.append(twt)
-        except:
-            pass
+        twt = re.search("(.*)(?:http)", status._json["text"])
+        if twt:
+            twt = twt.group(1)
+            tweets.append(twt)
     return tweets
 
 lexicon = Empath()

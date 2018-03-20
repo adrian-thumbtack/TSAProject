@@ -82,14 +82,14 @@ def handler(conn):
 			handle = data[s+len(t):data.find(b" ",s)]
 			conn.send(b"html\n\n")
 			f = open("results.html","rb")
-			conn.send(f.read().replace(b"[DEPRESSIONLVL]",b"5")) #getScore(get_tweets(initialize(),handle))))
+			conn.send(f.read().replace(b"[DEPRESSIONLVL]",getScore(get_tweets(initialize(),handle))))
 			f.close()
 		else:
 			sendFile(conn,defaultFile[0],defaultFile[1])
 	conn.close()
 
 serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-serv.bind(("",80))
+serv.bind(("",8080))
 serv.listen(65)
 processes = []
 while True:

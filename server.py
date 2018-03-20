@@ -87,7 +87,7 @@ def handler(conn):
 	conn.close()
 
 serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-serv.bind(("",8080))
+serv.bind(("",80))
 serv.listen(65)
 processes = []
 while True:

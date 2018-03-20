@@ -7,6 +7,8 @@ from unidecode import unidecode
 import sys
 import warnings
 
+FINALVERSION = False #if its final version, errors will be caught
+
 def initialize():
     consumer_key = "lBd0fokEEx2ncJCZUEWVLIUN8"
     consumer_secret = "AcQ2C1idexoxb0msBycqid2H1QbdtKZXRJh0cMPkpUAaKEWrC6"
@@ -91,6 +93,10 @@ serv.bind(("",80))
 serv.listen(65)
 processes = []
 while True:
-	conn,_ = serv.accept()
-	handler(conn)
+    conn,_ = serv.accept()
+    if FINALVERSION:
+        try: handler(conn)
+        except: pass
+    else:
+        handler(conn)
 serv.close()

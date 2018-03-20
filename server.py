@@ -55,6 +55,7 @@ def searchForPos(twts):
 filesToSend = {
 	b"style.css":b"css",
 	b"media/header.jpg":b"jpeg",
+	b"about.html":b"html",
 	b"favicon.ico":b"ico"
 }
 defaultFile = [b"depression.html",b"html"]

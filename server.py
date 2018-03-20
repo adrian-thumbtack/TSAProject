@@ -23,7 +23,8 @@ def initialize():
 
 def get_tweets(api, name="realDonaldTrump"):
     tweets = []
-    for status in tweepy.Cursor(api.user_timeline, screen_name="@{0}".format(name)).items():
+    for status in tweepy.Cursor(api.user_timeline, screen_name="@{0}".format(name)).items(30):
+        print(status)
         twt = re.search("(.*)(?:http)", status._json["text"])
         if twt:
             twt = twt.group(1)
@@ -34,9 +35,7 @@ lexicon = Empath()
 def getScore(twts):
 	negScore = searchForNeg(twts)
 	posScore = searchForPos(twts)
-	print(negScore)
-	print(posScore)
-	print ((negScore - posScore))
+	return negScore-posScore
 def searchForNeg(twts):
 	a = []
 	for tweet in twts:
@@ -76,12 +75,13 @@ def handler(conn):
 			break
 	if not sentSomething:
 		if data.find(b"results.html") != -1:
+			print("a")
 			t = b"?twitterhandle="
 			s = data.find(t)
 			handle = data[s+len(t):data.find(b" ",s)]
 			conn.send(b"html\n\n")
 			f = open("results.html","rb")
-			conn.send(f.read().replace(b"[DEPRESSIONLVL]",getScore(get_tweets(initialize(),handle))))
+			conn.send(f.read().replace(b"[DEPRESSIONLVL]",str(getScore(get_tweets(initialize(),handle.decode()))).encode()))
 			f.close()
 		else:
 			sendFile(conn,defaultFile[0],defaultFile[1])
@@ -92,6 +92,7 @@ serv.bind(("",80))
 serv.listen(65)
 processes = []
 while True:
+    print(get_tweets(initialize(),"realDonaldTrump"))
     conn,_ = serv.accept()
     if FINALVERSION:
         try: handler(conn)

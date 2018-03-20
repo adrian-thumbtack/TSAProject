@@ -92,7 +92,6 @@ serv.bind(("",80))
 serv.listen(65)
 processes = []
 while True:
-    print(get_tweets(initialize(),"realDonaldTrump"))
     conn,_ = serv.accept()
     if FINALVERSION:
         try: handler(conn)

@@ -81,7 +81,7 @@ def handler(conn):
 			s = data.find(t)
 			handle = data[s+len(t):data.find(b" ",s)]
 			conn.send(b"html\n\n")
-			f = open(filename,"rb")
+			f = open("results.html","rb")
 			conn.send(f.read().replace(b"[DEPRESSIONLVL]",getScore(get_tweets(initialize(),handle))))
 			f.close()
 		else:

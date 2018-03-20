@@ -3,7 +3,17 @@
   <head>
     <title> oh yes</title>
   <body>
-    [DEPRESSIONLVL]
-    <!-- all "[DEPRESSIONLVL]"s will be replaced with calculated depression lvl by python script -->
+    <div id="IHAVEDEPRESSION" style="display:none"><h1>ur depressed &lt;3</h1></div>
+    <div id="IHAVENODEPRESSION"><h1>ur depressed &lt;3</h1></div>
+    <script>
+      depressionlvl = "[DEPRESSIONLVL]" // will be replaced by python
+      if (depressionlvl == "[DEPRESSIONLVL"+"]") depressionlvl = "5"
+      depressionlvl = parseInt(depressionlvl)
+      hasDepression = depressionlvl > 0
+      if (hasDepression) {
+        document.getElementById("IHAVEDEPRESSION").style.display = ""
+        document.getElementById("IHAVENODEPRESSION").style.display = "none"
+      }
+    </script>
   </body>
 </html>

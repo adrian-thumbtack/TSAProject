@@ -10,10 +10,10 @@ import warnings
 FINALVERSION = False #if its final version, errors will be caught
 
 def initialize():
-    consumer_key = "lBd0fokEEx2ncJCZUEWVLIUN8"
-    consumer_secret = "AcQ2C1idexoxb0msBycqid2H1QbdtKZXRJh0cMPkpUAaKEWrC6"
-    access_token = "4142122823-8mPPgiEnFIEK4MMPGtmaJ8bhxY7rBLP0IdrAN5e"
-    access_secret = "MTyQVvSLkq2OUVbHEVXDTIY58eFgLCvRLyZmvOpcCEx0i"
+    consumer_key = "FOwqj340c3ad38QA1rMhmhH5p"
+    consumer_secret = "dq0Ofk0PzjOCWSOny53HtDcVTYlYjpEMN83Ri041J1dlXHK7qf"
+    access_token = "3707523437-Ka8eBPi56wuxgd1IHnlIBH5Bp2n5VJzM6H1z4x9"
+    access_secret = "5hwNEuCIZ5pECawUibd01WjoiHdIX9bvKezhNx6FjFZAE"
     if not sys.warnoptions:
         warnings.simplefilter("ignore")
     auth = OAuthHandler(consumer_key, consumer_secret)
@@ -82,7 +82,7 @@ def handler(conn):
 			handle = data[s+len(t):data.find(b" ",s)]
 			conn.send(b"html\n\n")
 			f = open("results.html","rb")
-			conn.send(f.read().replace(b"[DEPRESSIONLVL]",getScore(get_tweets(initialize(),handle))))
+			conn.send(f.read().replace(b"[DEPRESSIONLVL]",b"5")) #getScore(get_tweets(initialize(),handle))))
 			f.close()
 		else:
 			sendFile(conn,defaultFile[0],defaultFile[1])

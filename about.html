@@ -14,11 +14,28 @@
 		background-color: #9ad3de;
 		text-align: center;
 	}
+	#randomTxt {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+		color: white;
+	}
 	</style>
 </head>
 <body>
 	<div id="navbar">
 	<h1>About Us!</h1>
 	</div>
+	<div id="randomTxt">
+		<p>[INSERT TITLE HERE] was made using a combination of multiple different processes and languages. HTML and CSS were combined to create the web pages, while Python,
+		as well as many libraries, were used in the back end of this project. 
+		<br><br>The website takes the user's input and finds all tweets from the user with that name using an API called Tweepy.
+		Tweepy can return many more tweets than necessary, so instead, the first [x] tweets are taken and examined. 
+		<br><br>Sentiment analysis is performed on them by a library published on 
+		GitHub called Empath. Empath returns the amount of positive and negative words and connotations in sentences, which is useful for determining whether a person is afflicted by 
+		clinical depression. The scale used to judge these tweets was developed through [insert process here, if it doesn't sound impressive enough, delete this sentence].</p>
 </body>
 </html>

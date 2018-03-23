@@ -22,7 +22,6 @@ def initialize():
 def get_tweets(api, name="realDonaldTrump"):
     tweets = []
     for status in tweepy.Cursor(api.user_timeline, screen_name="@{0}".format(name)).items(30):
-        print(status)
         twt = re.search("(.*)(?:http)", status._json["text"])
         if twt:
             twt = twt.group(1)
@@ -38,14 +37,12 @@ def searchForNeg(twts):
 	a = []
 	for tweet in twts:
 		negResult = lexicon.analyze(tweet, categories=["negative_emotion"])
-		print(negResult)
 		a.append(sum(negResult.values()))
 	return sum(a)
 def searchForPos(twts):
 	a = []
 	for tweet in twts:
 		posResult = lexicon.analyze(tweet, categories=["positive_emotion"])
-		print(posResult)
 		a.append(sum(posResult.values()))
 	return sum(a)
 
@@ -73,13 +70,12 @@ def handler(conn):
 			break
 	if not sentSomething:
 		if data.find(b"results.html") != -1:
-			print("a")
 			t = b"?twitterhandle="
 			s = data.find(t)
 			handle = data[s+len(t):data.find(b" ",s)]
 			conn.send(b"html\n\n")
 			f = open("results.html","rb")
-			conn.send(f.read().replace(b"[DEPRESSIONLVL]",str(getScore(get_tweets(initialize(),handle.decode()))).encode()))
+			conn.send(f.read().replace(b"[DEPRESSIONLVL]",str(getScore(get_tweets(initialize(),handle.decode()))).encode()).replace(b"[USER]",handle))
 			f.close()
 		else:
 			sendFile(conn,defaultFile[0],defaultFile[1])

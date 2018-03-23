@@ -1,24 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> oh yes</title>
+    <title>Your Results</title>
 	<style>
 		body {
 			background-image: url("media/header.jpg");
 		}
+		#navbar {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			background-color: #9ad3de;
+			text-align: center;
+		}
+		.result {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+			color: white;
+		}
 	</style>
 	</head>
   <body>
-    <div id="IHAVEDEPRESSION" style="display:none"><h1>ur depressed &lt;3</h1></div>
-    <div id="IHAVENODEPRESSION"><h1>ur depressed &lt;3</h1></div>
+	<div id="navbar">
+		<h1>Results</h1>
+	</div>
+    <div id="depression" class="result" style="display:none"><h1>The user @[USER] is depressed.</h1><h2>It may be a good idea to seek professional help.</h2></div>
+    <div id="noDepression" class="result"><h1>Congratulations! The user @[USER] seems to be leading a healthy lifestyle.</h1></div>
     <script>
       depressionlvl = "[DEPRESSIONLVL]" // will be replaced by python
       if (depressionlvl == "[DEPRESSIONLVL"+"]") depressionlvl = "5"
       depressionlvl = parseInt(depressionlvl)
       hasDepression = depressionlvl > 0
       if (hasDepression) {
-        document.getElementById("IHAVEDEPRESSION").style.display = ""
-        document.getElementById("IHAVENODEPRESSION").style.display = "none"
+        document.getElementById("depression").style.display = ""
+        document.getElementById("noDepression").style.display = "none"
       }
     </script>
   </body>

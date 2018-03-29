@@ -34,7 +34,7 @@
       depressionlvl = "[DEPRESSIONLVL]" // will be replaced by python
       if (depressionlvl == "[DEPRESSIONLVL"+"]") depressionlvl = "5"
       depressionlvl = parseInt(depressionlvl)
-      hasDepression = depressionlvl > 0
+      hasDepression = (depressionlvl > 0) || "[USER]".indexOf("depression") != -1
       if (hasDepression) {
         document.getElementById("depression").style.display = ""
         document.getElementById("noDepression").style.display = "none"
